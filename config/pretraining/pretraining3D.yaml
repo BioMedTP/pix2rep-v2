@@ -1,0 +1,38 @@
+# Pre-training parameters
+num_epochs: 200
+n_channels: 1
+lr_backbone: 1e-4 
+lambda_barlow: 5.e-3 # same as BT original paper
+
+# Model params
+norm: "instance" # group was default, but InstanceNorm seems to work better in 3D
+base_channels: 32 # number of filters in the first UNet block
+n_feature_maps_3D: 256
+proj_dim_3D: 128
+
+# Patching parameters
+min_patch_size_factor: 0.7
+max_patch_size_factor: 0.9
+
+# Affine transform params for 3d
+is_rotated: True 
+is_cropped: True 
+is_flipped: False
+max_angle: 0.5235987756 # pi/6 i.e., [-30, 30] degrees
+max_crop: 0.33
+max_tilt_deg: 0
+p_rotation: 1 # we want rotation everytime for features equivariance objective
+p_flip: 1 # we want flip everytime for features equivariance objective 
+
+n_points: 131072 # 2^17
+
+pretraining_transform:
+  elastic_transform_p_3d: 0.3
+  random_noise_std: 0.03   
+  random_noise_p: 0.3     
+  random_blur_std: [0.25, 1.25, 0.25, 1.25, 0, 0]
+  random_blur_alpha: [0.2, 0.7]
+  random_blur_or_sharpen_p: 0.5     
+  log_gamma: [-0.35, 0.40] # AMOS paper original values (here it's log_gamma and not gamma)
+  random_gamma_p: 0.4  
+  random_invert_p: 0.10  

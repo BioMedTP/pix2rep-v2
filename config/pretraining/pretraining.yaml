@@ -1,0 +1,38 @@
+defaults:
+  - backbone: unet   # default backbone
+
+# Pre-training parameters
+num_epochs: 200
+n_channels: 1
+lr_backbone: 5e-4
+lambda_barlow: 5e-3 # same as BT original paper
+
+# Projection head parameters
+n_feature_maps_mlp: 256
+projection_head_depth: 1 # increases with inner_dim
+inner_dim_1: 256
+
+# Patching parameters
+min_patch_size_factor: 0.33
+max_patch_size_factor: 0.75
+
+# Affine transform params for 2d
+is_rotated: True 
+is_cropped: True 
+is_flipped: True
+is_translation: False
+max_angle: 1.57079632679 #pi/2
+max_crop: 0.33
+
+pretraining_transform:
+  elastic_transform_p: 0.5
+  elastic_transform_p_3d: 0.3
+  random_noise_std: 0.02   
+  random_noise_p: 0.3      
+  random_blur_std: 1.3     
+  random_blur_p: 0.3       
+  log_gamma: 0.3            
+  random_gamma_p: 0.9       
+  random_field_coef: 0.9   
+  random_field_p: 0.75     
+  random_invert_p: 0.35    

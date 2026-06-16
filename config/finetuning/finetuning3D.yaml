@@ -1,0 +1,28 @@
+n_classes: 16 # AMOS has 16 classes (background included)
+num_patients: 100 # proportion of patients to use during fine-tuning
+num_epochs: 1000
+
+finetuning_lr_backbone: 1e-5 # 10x smaller than pretraining LR
+finetuning_lr_outconv: 1e-3
+
+# DiceCELoss
+batch_dice: False
+lambda_dice: 1.0
+lambda_ce: 1.0
+
+is_rotated: True
+is_cropped: False
+is_flipped: False
+max_angle: 0.2617993878 # pi/12 i.e., [-15, 15] degrees
+max_tilt_deg: 0
+p_rotation: 0.15
+p_flip: 0
+
+finetuning_transform:
+  random_noise_std: 0.02   
+  random_noise_p: 0.3     
+  random_blur_std: [0.25, 1.2, 0.25, 1.2, 0, 0]
+  random_blur_alpha: [0.2, 0.7]
+  random_blur_or_sharpen_p: 0.5     
+  log_gamma: [-0.35, 0.40] # AMOS paper original values (here it's log_gamma and not gamma)
+  random_gamma_p: 0.3 # Same value than AMOS paper

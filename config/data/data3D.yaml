@@ -1,0 +1,10 @@
+val_ratio: 0.1
+batch_size_pretraining: 8
+batch_size_finetuning: 3
+random_seed: 42
+
+BODY_THRESHOLD_HU: -500
+SPACING: [0.69, 0.69, 2.0]  
+WINDOW_HU: [-200, 300] 
+PATCH_SIZE: [192, 192, 64] 
+ROI_SW_SIZE: [64, 192, 192] 

@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+.vscode
+.pre-commit-config.yaml
+results/
+wandb/
+lightning_logs/
+output/

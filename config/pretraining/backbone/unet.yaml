@@ -1,0 +1,6 @@
+name: unet
+params:
+  in_channels: 1
+  out_channels_repr: 1024
+  norm: batch
+  bilinear: false

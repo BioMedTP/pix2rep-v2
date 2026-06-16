@@ -1,0 +1,4 @@
+defaults:
+  - data: data3D
+  - pretraining: pretraining3D
+  - finetuning: finetuning3D

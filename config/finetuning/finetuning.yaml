@@ -1,0 +1,25 @@
+n_classes: 4 # The 3 datasets (ACDC/M&Ms/M&Ms-2) have 4 classes (background, LV, RV, MYO)
+num_patients: 100 # proportion of patients to use during fine-tuning
+num_epochs: 100
+
+in_context_proj_norm: batch
+
+finetuning_lr_backbone: 5e-5
+finetuning_lr_outconv: 1e-2
+linear_probing_lr_outconv: 7.6e-3
+
+# DiceCELoss
+lambda_dice: 1.0
+lambda_ce: 1.0
+
+supervised_transform:
+  elastic_transform_p: 0.3
+  random_noise_std: 0.02   
+  random_noise_p: 0.3      
+  random_blur_std: 1.3     
+  random_blur_p: 0.3       
+  log_gamma: 0.3          
+  random_gamma_p: 0.9      
+  random_field_coef: 0.9    
+  random_field_p: 0.75     
+  random_invert_p: 0.2

@@ -93,6 +93,40 @@ python -m scripts.cardiac.incontext --exp_name {put_your_experiment_name} --supp
 
 NB: If you want to use the in-context downstream segmentation task with a pretrained Pix2Rep-v2+SwinUNETR, don't forget to change the default backbone in the CLI (`--overrides pretraining/backbone=swin_unetr`).
 
+## Pre-trained weights
+
+The pre-trained weights of Pix2Rep-v2 pre-training on cardiac MRI data are released on Hugging Face:
+[sifaoso/pix2rep-v2](https://huggingface.co/sifaoso/pix2rep-v2).
+
+| file | content |
+|---|---|
+| `pix2rep-v2_cmr_unet_best.ckpt` | Pix2Rep-v2+U-Net |
+| `pix2rep-v2_cmr_swin_best.ckpt` | Pix2Rep-v2+SwinUNETR |
+
+From the root of this repository:
+
+```bash
+pip install -U huggingface_hub
+# default: Pix2Rep-v2+U-Net backbone -> weights/pix2rep-v2_cmr_unet_best.ckpt
+hf download sifaoso/pix2rep-v2 pix2rep-v2_cmr_unet_best.ckpt --local-dir weights
+# optional: both models
+hf download sifaoso/pix2rep-v2 --include "*.ckpt" --local-dir weights
+```
+
+Without the Hugging Face CLI:
+
+```bash
+mkdir -p weights
+wget -P weights https://huggingface.co/sifaoso/pix2rep-v2/resolve/main/pix2rep-v2_cmr_unet_best.ckpt
+```
+
+Or from Python:
+
+```python
+from huggingface_hub import hf_hub_download
+path = hf_hub_download("sifaoso/pix2rep-v2", "pix2rep-v2_cmr_unet_best.ckpt", local_dir="weights")
+```
+
 ## Hyperparameters Configuration
 
 We provide the complete hyperparameters configuration. For details on data augmentations parameters, please take a look at the config files (`pretraining.yaml` and `finetuning.yaml`).

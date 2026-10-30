@@ -195,10 +195,14 @@ All datasets are publicly available online. We will provide instructions about d
 For citing this work, please use the following BibTeX entry:
 
 ```bibtex
-@InProceedings{Sifaoui_2026_MICCAI,
-    author    = {Sifaoui, Sofiane and Angelini, Elsa and Toupin, Solenn and Pezel, Théo and Le Folgoc, Loïc},
-    title     = {Pix2Rep-v2: Data-Efficient Representation Learning for Dense Medical Imaging Applications},
-    booktitle = {International Conference on Medical Image Computing and Computer Assisted Intervention (MICCAI)},
-    year      = {2026}
+@InProceedings{SifSof_Pix2Repv2_MICCAI2026,
+        author = { Sifaoui, Sofiane AND Angelini, Elsa AND Toupin, Solenn AND Pezel, Théo AND Le Folgoc, Loïc},
+        title = { { Pix2Rep-v2: Data-Efficient Representation Learning for Dense Medical Imaging Applications } },
+        booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2026},
+        year = {2026},
+        publisher = {Springer Nature Switzerland},
+        volume = {LNCS 16880},
+        month = {September},
+        page = {451-460}
 }
 ```
